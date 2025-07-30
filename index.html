@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Web - Jiaheng (Vincent) Zhou</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 星空背景 -->
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <!-- 导航菜单 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-rocket"></i>
+                <span>Jiaheng (Vincent) Zhou</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Main Page</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#resume" class="nav-link">My Resume</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">My Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact Me</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页部分 -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="glow-text">Welcome to my web</span>
+                    <br>
+                    <span class="neon-text">Jiaheng (Vincent) Zhou</span>
+                </h1>
+                <p class="hero-subtitle">I see endless possibilities in the future</p>
+                <div class="hero-buttons">
+                    <a href="#resume" class="btn btn-primary">
+                        <i class="fas fa-user-astronaut"></i>
+                        Resume
+                    </a>
+                    <a href="#projects" class="btn btn-secondary">
+                        <i class="fas fa-rocket"></i>
+                        Projects
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-elements">
+                    <div class="planet planet-1"></div>
+                    <div class="planet planet-2"></div>
+                    <div class="planet planet-3"></div>
+                    <div class="satellite"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 简历部分 -->
+    <section id="resume" class="resume-section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-user-astronaut"></i>
+                Skills
+            </h2>
+            
+            <div class="resume-grid">
+                <!-- 个人信息 -->
+                <div class="resume-card personal-info">
+                    <h3><i class="fas fa-id-card"></i> Personal Info</h3>
+                    <div class="info-content">
+                        <div class="info-item">
+                            <i class="fas fa-user"></i>
+                            <span>Name：Jiaheng (Vincent) Zhou</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email：zjh0624@yorku.ca</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Address: Toronto, ON  M4S 0A7</span>
+                        </div>
+                        <!-- <div class="info-item">
+                            <i class="fas fa-code"></i>
+                            <span>专业：软件工程师</span>
+                        </div> -->
+                    </div>
+                </div>
+
+                <!-- 技能 -->
+                <div class="resume-card skills">
+                    <h3><i class="fas fa-tools"></i> Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Front-End</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">HTML5</span>
+                                <span class="skill-tag">CSS3</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Vue.js</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Back-End</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">Java</span>
+                                <span class="skill-tag">MySQL</span>
+                            
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Other skills</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Git</span>
+                                <span class="skill-tag">WordPress</span>
+                                <span class="skill-tag">Microsoft Suites</span>
+                                <span class="skill-tag">Google Suites</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 工作经验 -->
+                <div class="resume-card experience">
+                    <h3><i class="fas fa-briefcase"></i> 工作经验</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>高级软件工程师</h4>
+                                <p class="company">科技公司名称</p>
+                                <p class="period">2022 - 至今</p>
+                                <ul>
+                                    <li>负责大型Web应用的前端开发</li>
+                                    <li>优化应用性能，提升用户体验</li>
+                                    <li>指导初级开发人员</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>软件工程师</h4>
+                                <p class="company">创业公司名称</p>
+                                <p class="period">2020 - 2022</p>
+                                <ul>
+                                    <li>全栈开发，负责产品核心功能</li>
+                                    <li>参与产品设计和架构决策</li>
+                                    <li>与团队协作完成项目交付</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 教育背景 -->
+                <div class="resume-card education">
+                    <h3><i class="fas fa-graduation-cap"></i> 教育背景</h3>
+                    <div class="education-item">
+                        <h4>计算机科学学士</h4>
+                        <p class="school">知名大学名称</p>
+                        <p class="period">2016 - 2020</p>
+                        <p class="description">主修计算机科学，辅修数学。参与多个编程竞赛和开源项目。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目部分 -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-rocket"></i>
+                项目展示
+            </h2>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-placeholder">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>智能聊天机器人</h3>
+                        <p>基于AI技术的智能聊天机器人，支持自然语言处理和情感分析。</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">React</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-placeholder">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>移动端任务管理应用</h3>
+                        <p>功能完整的任务管理应用，支持团队协作和实时同步。</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-placeholder">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>数据可视化平台</h3>
+                        <p>实时数据分析和可视化平台，支持多种图表类型和交互式操作。</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">D3.js</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-placeholder">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>太空探索游戏</h3>
+                        <p>基于WebGL的3D太空探索游戏，包含物理引擎和粒子系统。</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Three.js</span>
+                            <span class="tech-tag">WebGL</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系部分 -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-satellite"></i>
+                联系我
+            </h2>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>邮箱</h4>
+                            <p>your.email@example.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p>linkedin.com/in/yourprofile</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h4>GitHub</h4>
+                            <p>github.com/yourusername</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="您的姓名" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="您的邮箱" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="您的消息" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            发送消息
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-rocket"></i> Jiaheng (Vincent) Zhou</h3>
+                    <p>I see endless possibilities in the future.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="#home">Main Page</a></li>
+                        <li><a href="#resume">My Resume</a></li>
+                        <li><a href="#projects">My Projects</a></li>
+                        <li><a href="#contact">Contact Me</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Social Media</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Jiaheng Zhou. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
