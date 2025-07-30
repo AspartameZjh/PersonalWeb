@@ -1,22 +1,130 @@
-/* 全局样式和变量 */
+/* CSS Variables for Theme Switching */
 :root {
-    --primary-bg: #0a0a0f;
-    --secondary-bg: #1a1a2e;
-    --accent-bg: #16213e;
-    --primary-text: #ffffff;
-    --secondary-text: #b8b8b8;
-    --accent-text: #00d4ff;
-    --neon-blue: #00d4ff;
-    --neon-purple: #8b5cf6;
-    --neon-pink: #ec4899;
-    --neon-green: #10b981;
-    --border-color: #2d2d3a;
-    --card-bg: rgba(26, 26, 46, 0.8);
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    --glow: 0 0 20px rgba(0, 212, 255, 0.5);
+    /* Dark Theme Colors */
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #1a1a2e;
+    --bg-card: #16213e;
+    --text-primary: #ffffff;
+    --text-secondary: #b8b8b8;
+    --accent-primary: #00d4ff;
+    --accent-secondary: #ff6b6b;
+    --accent-tertiary: #4ecdc4;
+    --border-color: #2a2a3e;
+    --shadow-color: rgba(0, 212, 255, 0.1);
+    --glow-color: rgba(0, 212, 255, 0.3);
+    
+    /* Typography */
+    --font-heading: 'Orbitron', monospace;
+    --font-body: 'Rajdhani', sans-serif;
+    
+    /* Transitions */
+    --transition-fast: 0.3s ease;
+    --transition-medium: 0.5s ease;
+    --transition-slow: 0.8s ease;
 }
 
+/* Light Theme Colors */
+.light-theme {
+    --bg-primary: #f8f9fa;
+    --bg-secondary: #ffffff;
+    --bg-card: #f1f3f4;
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a4a4a;
+    --accent-primary: #0066cc;
+    --accent-secondary: #e74c3c;
+    --accent-tertiary: #27ae60;
+    --border-color: #e1e5e9;
+    --shadow-color: rgba(0, 102, 204, 0.1);
+    --glow-color: rgba(0, 102, 204, 0.2);
+}
+
+/* Light theme stars - more subtle and scattered */
+.light-theme .stars {
+    background-image: 
+        radial-gradient(1px 1px at 37px 28px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 73px 82px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 91px 41px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 128px 97px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 149px 19px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 171px 69px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 193px 51px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 215px 87px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 237px 33px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 259px 79px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 281px 11px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 303px 61px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 325px 93px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 347px 25px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 369px 71px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 391px 43px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 413px 89px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 435px 17px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 457px 63px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 479px 95px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 501px 31px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 523px 77px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 545px 13px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 567px 59px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 589px 91px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 611px 27px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 633px 73px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 655px 45px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 677px 81px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 699px 9px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 721px 55px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 743px 87px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 765px 23px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 787px 69px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 809px 35px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 831px 81px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 853px 47px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 875px 93px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 897px 29px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 919px 75px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 941px 41px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 963px 87px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 985px 53px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 1007px 99px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 1029px 15px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 1051px 61px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 1073px 37px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 1095px 83px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 1117px 49px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 1139px 95px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 1161px 21px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 1183px 67px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 1205px 33px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 1227px 79px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 1249px 45px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 1271px 91px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 1293px 17px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 1315px 63px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 1337px 39px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 1359px 85px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 1381px 51px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 1403px 97px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 1425px 23px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 1447px 69px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 1469px 35px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 1491px 81px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 1513px 47px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 1535px 93px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 1557px 19px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 1579px 65px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 1601px 41px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 1623px 87px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 1645px 53px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 1667px 99px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 1689px 25px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 1711px 71px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 1733px 37px, rgba(0, 102, 204, 0.4), transparent),
+        radial-gradient(2px 2px at 1755px 83px, rgba(0, 102, 204, 0.2), transparent),
+        radial-gradient(1px 1px at 1777px 49px, rgba(0, 102, 204, 0.3), transparent),
+        radial-gradient(1px 1px at 1799px 95px, rgba(0, 102, 204, 0.4), transparent);
+    animation: twinkle-light 30s linear infinite;
+}
+
+/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -24,72 +132,21 @@
 }
 
 body {
-    font-family: 'Rajdhani', sans-serif;
-    background: var(--primary-bg);
-    color: var(--primary-text);
+    font-family: var(--font-body);
+    background: var(--bg-primary);
+    color: var(--text-primary);
     line-height: 1.6;
+    transition: background-color var(--transition-medium), color var(--transition-medium);
     overflow-x: hidden;
 }
 
-/* 星空背景动画 */
-.stars {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    z-index: -2;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.stars::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
-        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
-        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
-        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
-        radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
-    background-repeat: repeat;
-    background-size: 200px 100px;
-    animation: twinkle 4s ease-in-out infinite;
-}
-
-.twinkling {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    z-index: -1;
-}
-
-.twinkling::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        radial-gradient(1px 1px at 25px 5px, white, transparent),
-        radial-gradient(1px 1px at 50px 25px, white, transparent),
-        radial-gradient(1px 1px at 125px 20px, white, transparent),
-        radial-gradient(1px 1px at 150px 75px, white, transparent),
-        radial-gradient(1px 1px at 175px 50px, white, transparent);
-    background-repeat: repeat;
-    background-size: 200px 100px;
-    animation: twinkle 2s ease-in-out infinite;
-}
-
-@keyframes twinkle {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
-}
-
-/* 导航栏 */
+/* Navigation */
 .navbar {
     position: fixed;
     top: 0;
@@ -98,38 +155,51 @@ body {
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
     z-index: 1000;
-    transition: all 0.3s ease;
+    transition: all var(--transition-fast);
+}
+
+.light-theme .navbar {
+    background: rgba(248, 249, 250, 0.95);
 }
 
 .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .nav-logo {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-family: 'Orbitron', monospace;
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: var(--neon-blue);
-    text-shadow: 0 0 10px var(--neon-blue);
 }
 
-.nav-logo i {
-    font-size: 1.8rem;
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--accent-primary);
+    text-shadow: 0 0 10px var(--glow-color);
+}
+
+.logo-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, var(--glow-color) 0%, transparent 70%);
+    border-radius: 50%;
     animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+    0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
 }
 
 .nav-menu {
@@ -139,12 +209,15 @@ body {
 }
 
 .nav-link {
-    color: var(--primary-text);
+    color: var(--text-primary);
     text-decoration: none;
     font-weight: 500;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
+    transition: color var(--transition-fast);
     position: relative;
+}
+
+.nav-link:hover {
+    color: var(--accent-primary);
 }
 
 .nav-link::after {
@@ -154,136 +227,347 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--neon-blue);
-    transition: width 0.3s ease;
+    background: var(--accent-primary);
+    transition: width var(--transition-fast);
 }
 
 .nav-link:hover::after {
     width: 100%;
 }
 
-.nav-link:hover {
-    color: var(--neon-blue);
-    text-shadow: 0 0 10px var(--neon-blue);
-}
-
-/* 汉堡菜单 */
-.hamburger {
-    display: none;
-    flex-direction: column;
+/* Theme Toggle */
+.theme-toggle {
+    position: relative;
+    width: 50px;
+    height: 25px;
+    background: var(--bg-card);
+    border-radius: 25px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    transition: all var(--transition-fast);
+    border: 1px solid var(--border-color);
 }
 
-.bar {
-    width: 25px;
-    height: 3px;
-    background: var(--primary-text);
-    margin: 3px 0;
-    transition: 0.3s;
+.theme-toggle::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 21px;
+    height: 21px;
+    background: var(--accent-primary);
+    border-radius: 50%;
+    transition: transform var(--transition-fast);
+    box-shadow: 0 0 10px var(--glow-color);
 }
 
-/* 首页英雄区域 */
-.hero {
+.light-theme .theme-toggle::before {
+    transform: translateX(25px);
+}
+
+.theme-toggle i {
+    font-size: 12px;
+    color: var(--text-primary);
+    z-index: 1;
+}
+
+.theme-toggle .fa-sun {
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.theme-toggle .fa-moon {
+    opacity: 1;
+    transition: opacity var(--transition-fast);
+}
+
+.light-theme .theme-toggle .fa-sun {
+    opacity: 1;
+}
+
+.light-theme .theme-toggle .fa-moon {
+    opacity: 0;
+}
+
+/* Hero Section */
+.hero-section {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 0 2rem;
     position: relative;
     overflow: hidden;
 }
 
-.hero-content {
-    max-width: 1200px;
+.cosmic-background {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(1px 1px at 23px 47px, #fff, transparent),
+        radial-gradient(1px 1px at 67px 13px, rgba(255,255,255,0.9), transparent),
+        radial-gradient(2px 2px at 89px 78px, #eee, transparent),
+        radial-gradient(1px 1px at 134px 29px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1px 1px at 156px 91px, #ddd, transparent),
+        radial-gradient(2px 2px at 178px 34px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 201px 67px, #fff, transparent),
+        radial-gradient(1px 1px at 223px 12px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(2px 2px at 245px 83px, #eee, transparent),
+        radial-gradient(1px 1px at 267px 45px, rgba(255,255,255,0.9), transparent),
+        radial-gradient(1px 1px at 289px 76px, #fff, transparent),
+        radial-gradient(2px 2px at 311px 18px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1px 1px at 333px 59px, #ddd, transparent),
+        radial-gradient(1px 1px at 355px 87px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(2px 2px at 377px 31px, #fff, transparent),
+        radial-gradient(1px 1px at 399px 72px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1px 1px at 421px 14px, #eee, transparent),
+        radial-gradient(2px 2px at 443px 85px, rgba(255,255,255,0.9), transparent),
+        radial-gradient(1px 1px at 465px 26px, #fff, transparent),
+        radial-gradient(1px 1px at 487px 68px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(2px 2px at 509px 39px, #ddd, transparent),
+        radial-gradient(1px 1px at 531px 81px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 553px 22px, #fff, transparent),
+        radial-gradient(2px 2px at 575px 63px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1px 1px at 597px 95px, #eee, transparent),
+        radial-gradient(1px 1px at 619px 36px, rgba(255,255,255,0.9), transparent),
+        radial-gradient(2px 2px at 641px 77px, #fff, transparent),
+        radial-gradient(1px 1px at 663px 19px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1px 1px at 685px 60px, #ddd, transparent),
+        radial-gradient(2px 2px at 707px 92px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 729px 33px, #fff, transparent),
+        radial-gradient(1px 1px at 751px 74px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(2px 2px at 773px 16px, #eee, transparent),
+        radial-gradient(1px 1px at 795px 57px, rgba(255,255,255,0.9), transparent),
+        radial-gradient(1px 1px at 817px 88px, #fff, transparent),
+        radial-gradient(2px 2px at 839px 30px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1px 1px at 861px 71px, #ddd, transparent),
+        radial-gradient(1px 1px at 883px 13px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(2px 2px at 905px 54px, #fff, transparent),
+        radial-gradient(1px 1px at 927px 96px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1px 1px at 949px 37px, #eee, transparent),
+        radial-gradient(2px 2px at 971px 78px, rgba(255,255,255,0.9), transparent),
+        radial-gradient(1px 1px at 993px 20px, #fff, transparent),
+        radial-gradient(1px 1px at 1015px 61px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(2px 2px at 1037px 93px, #ddd, transparent),
+        radial-gradient(1px 1px at 1059px 34px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 1081px 75px, #fff, transparent),
+        radial-gradient(2px 2px at 1103px 17px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1px 1px at 1125px 58px, #eee, transparent),
+        radial-gradient(1px 1px at 1147px 89px, rgba(255,255,255,0.9), transparent),
+        radial-gradient(2px 2px at 1169px 31px, #fff, transparent),
+        radial-gradient(1px 1px at 1191px 72px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1px 1px at 1213px 14px, #ddd, transparent),
+        radial-gradient(2px 2px at 1235px 55px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 1257px 96px, #fff, transparent),
+        radial-gradient(1px 1px at 1279px 38px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(2px 2px at 1301px 79px, #eee, transparent),
+        radial-gradient(1px 1px at 1323px 21px, rgba(255,255,255,0.9), transparent),
+        radial-gradient(1px 1px at 1345px 62px, #fff, transparent),
+        radial-gradient(2px 2px at 1367px 94px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1px 1px at 1389px 35px, #ddd, transparent),
+        radial-gradient(1px 1px at 1411px 76px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(2px 2px at 1433px 18px, #fff, transparent),
+        radial-gradient(1px 1px at 1455px 59px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1px 1px at 1477px 90px, #eee, transparent),
+        radial-gradient(2px 2px at 1499px 32px, rgba(255,255,255,0.9), transparent);
+    background-repeat: repeat;
+    background-size: 400px 300px;
+    animation: twinkle 25s linear infinite;
+}
+
+@keyframes twinkle {
+    0% { 
+        transform: translateY(0) translateX(0);
+        opacity: 0.8;
+    }
+    25% {
+        transform: translateY(-25px) translateX(5px);
+        opacity: 1;
+    }
+    50% { 
+        transform: translateY(-50px) translateX(-3px);
+        opacity: 0.6;
+    }
+    75% {
+        transform: translateY(-75px) translateX(2px);
+        opacity: 0.9;
+    }
+    100% { 
+        transform: translateY(-100px) translateX(0);
+        opacity: 0.8;
+    }
+}
+
+@keyframes twinkle-light {
+    0% { 
+        transform: translateY(0) translateX(0);
+        opacity: 0.3;
+    }
+    25% {
+        transform: translateY(-30px) translateX(3px);
+        opacity: 0.5;
+    }
+    50% { 
+        transform: translateY(-60px) translateX(-2px);
+        opacity: 0.2;
+    }
+    75% {
+        transform: translateY(-90px) translateX(4px);
+        opacity: 0.4;
+    }
+    100% { 
+        transform: translateY(-120px) translateX(0);
+        opacity: 0.3;
+    }
+}
+
+.planets {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, var(--accent-tertiary), var(--accent-primary));
+    box-shadow: 0 0 20px var(--glow-color);
+}
+
+.planet-1 {
+    width: 80px;
+    height: 80px;
+    top: 20%;
+    right: 10%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.planet-2 {
+    width: 60px;
+    height: 60px;
+    top: 60%;
+    right: 20%;
+    background: radial-gradient(circle at 30% 30%, var(--accent-secondary), #ff8e53);
+    animation: float 8s ease-in-out infinite reverse;
+}
+
+.planet-3 {
+    width: 40px;
+    height: 40px;
+    top: 30%;
+    right: 30%;
+    background: radial-gradient(circle at 30% 30%, var(--accent-primary), #4ecdc4);
+    animation: float 10s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+.hero-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.hero-text {
+    z-index: 1;
 }
 
 .hero-title {
-    font-family: 'Orbitron', monospace;
+    font-family: var(--font-heading);
     font-size: 2.5rem;
     font-weight: 900;
-    line-height: 1.5;
     margin-bottom: 1.5rem;
+    line-height: 1.2;
 }
 
-.glow-text {
-    color: var(--secondary-text);
-    font-size: 2rem;
-    line-height: 1.5;
-    font-weight: 400;
+.title-line {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
-.neon-text {
-    background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+.title-name {
+    display: block;
+    background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 0 30px var(--neon-blue);
-    animation: neon-glow 2s ease-in-out infinite alternate;
+    text-shadow: 0 0 30px var(--glow-color);
 }
 
-@keyframes neon-glow {
-    from { text-shadow: 0 0 30px var(--neon-blue); }
-    to { text-shadow: 0 0 40px var(--neon-blue), 0 0 60px var(--neon-blue); }
+.title-role {
+    display: block;
+    color: var(--accent-tertiary);
+    font-size: 1.8rem;
+    margin-top: 0.5rem;
 }
 
-.hero-subtitle {
-    font-size: 1.3rem;
-    color: var(--secondary-text);
+.hero-description {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
     margin-bottom: 2rem;
-    line-height: 1.6;
+    max-width: 500px;
 }
 
 .hero-buttons {
     display: flex;
     gap: 1rem;
-    flex-wrap: wrap;
 }
 
 .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1rem 2rem;
+    padding: 12px 24px;
     border: none;
-    border-radius: 50px;
-    font-size: 1.1rem;
+    border-radius: 25px;
+    font-family: var(--font-body);
     font-weight: 600;
     text-decoration: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
+    transition: all var(--transition-fast);
     position: relative;
     overflow: hidden;
 }
 
 .btn-primary {
-    background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+    background: linear-gradient(45deg, var(--accent-primary), var(--accent-tertiary));
     color: white;
-    box-shadow: var(--glow);
+    box-shadow: 0 4px 15px var(--shadow-color);
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 30px var(--neon-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow-color);
 }
 
 .btn-secondary {
     background: transparent;
-    color: var(--neon-blue);
-    border: 2px solid var(--neon-blue);
+    color: var(--accent-primary);
+    border: 2px solid var(--accent-primary);
 }
 
 .btn-secondary:hover {
-    background: var(--neon-blue);
+    background: var(--accent-primary);
     color: white;
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
-/* 浮动元素动画 */
 .hero-visual {
     position: relative;
     height: 400px;
@@ -295,372 +579,219 @@ body {
     height: 100%;
 }
 
-.planet {
+.element {
     position: absolute;
     border-radius: 50%;
-    animation: float 6s ease-in-out infinite;
+    background: linear-gradient(45deg, var(--accent-primary), var(--accent-tertiary));
+    opacity: 0.6;
+    animation: float 4s ease-in-out infinite;
 }
 
-.planet-1 {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(45deg, var(--neon-purple), var(--neon-pink));
+.element-1 {
+    width: 100px;
+    height: 100px;
     top: 20%;
     left: 20%;
     animation-delay: 0s;
 }
 
-.planet-2 {
+.element-2 {
     width: 60px;
     height: 60px;
-    background: linear-gradient(45deg, var(--neon-blue), var(--neon-green));
     top: 60%;
-    right: 30%;
+    left: 60%;
     animation-delay: 2s;
 }
 
-.planet-3 {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(45deg, var(--neon-pink), var(--neon-purple));
-    bottom: 20%;
+.element-3 {
+    width: 80px;
+    height: 80px;
+    top: 40%;
     left: 40%;
     animation-delay: 4s;
 }
 
-.satellite {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: var(--neon-blue);
-    border-radius: 50%;
-    top: 30%;
-    right: 20%;
-    animation: orbit 8s linear infinite;
+/* Section Styles */
+section {
+    padding: 5rem 0;
 }
 
-.satellite::before {
-    content: '';
-    position: absolute;
-    width: 40px;
-    height: 2px;
-    background: var(--neon-blue);
-    left: -20px;
-    top: 9px;
-    transform: rotate(45deg);
-}
-
-.satellite::after {
-    content: '';
-    position: absolute;
-    width: 40px;
-    height: 2px;
-    background: var(--neon-blue);
-    right: -20px;
-    top: 9px;
-    transform: rotate(-45deg);
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-}
-
-@keyframes orbit {
-    from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
-    to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
-}
-
-/* 通用容器 */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-/* 章节标题 */
 .section-title {
-    font-family: 'Orbitron', monospace;
+    font-family: var(--font-heading);
     font-size: 2.5rem;
-    font-weight: 700;
     text-align: center;
     margin-bottom: 3rem;
-    color: var(--neon-blue);
-    text-shadow: 0 0 20px var(--neon-blue);
+    color: var(--text-primary);
+    position: relative;
 }
 
-.section-title i {
-    margin-right: 1rem;
-    animation: spin 4s linear infinite;
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+    border-radius: 2px;
 }
 
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-/* 简历部分 */
+/* Resume Section */
 .resume-section {
-    padding: 6rem 0;
-    background: var(--secondary-bg);
+    background: var(--bg-secondary);
 }
 
 .resume-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.resume-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 15px;
-    padding: 2rem;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.resume-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
-}
-
-.resume-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow), 0 0 30px rgba(0, 212, 255, 0.3);
-}
-
-.resume-card h3 {
-    font-family: 'Orbitron', monospace;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--neon-blue);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.info-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.info-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.5rem 0;
-}
-
-.info-item i {
-    color: var(--neon-blue);
-    width: 20px;
-}
-
-.skills-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.skill-category h4 {
-    color: var(--neon-purple);
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-}
-
-.skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.skill-tag {
-    background: var(--glass-bg);
-    border: 1px solid var(--border-color);
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    color: var(--secondary-text);
-    transition: all 0.3s ease;
-}
-
-.skill-tag:hover {
-    background: var(--neon-blue);
-    color: white;
-    transform: scale(1.05);
-}
-
-/* 时间线样式 */
-.timeline {
-    position: relative;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: var(--neon-blue);
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 2rem;
-    padding-left: 3rem;
-}
-
-.timeline-marker {
-    position: absolute;
-    left: 11px;
-    top: 0;
-    width: 20px;
-    height: 20px;
-    background: var(--neon-blue);
-    border-radius: 50%;
-    border: 3px solid var(--primary-bg);
-}
-
-.timeline-content h4 {
-    color: var(--neon-blue);
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-}
-
-.company {
-    color: var(--neon-purple);
-    font-weight: 600;
-    margin-bottom: 0.3rem;
-}
-
-.period {
-    color: var(--secondary-text);
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-}
-
-.timeline-content ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.timeline-content li {
-    position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 0.3rem;
-}
-
-.timeline-content li::before {
-    content: '▸';
-    position: absolute;
-    left: 0;
-    color: var(--neon-blue);
-}
-
-/* 项目部分 */
-.projects-section {
-    padding: 6rem 0;
-}
-
-.projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
 }
 
-.project-card {
-    background: var(--card-bg);
+.resume-card {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 15px;
     border: 1px solid var(--border-color);
+    transition: all var(--transition-fast);
+    box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+.resume-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px var(--shadow-color);
+}
+
+.card-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.skills-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.skill-category h4 {
+    color: var(--accent-secondary);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.skill-list {
+    list-style: none;
+}
+
+.skill-list li {
+    padding: 0.5rem 0;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.skill-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent-primary);
+    font-weight: bold;
+}
+
+.experience-item, .education-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.experience-item:last-child, .education-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.exp-header, .edu-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.exp-header h4, .edu-header h4 {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.exp-company, .edu-school {
+    color: var(--accent-primary);
+    font-weight: 500;
+}
+
+.exp-date, .edu-date {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Projects Section */
+.projects-section {
+    background: var(--bg-primary);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--bg-card);
     border-radius: 15px;
     overflow: hidden;
-    transition: all 0.3s ease;
-    position: relative;
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-fast);
+    box-shadow: 0 4px 20px var(--shadow-color);
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow), 0 0 30px rgba(0, 212, 255, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px var(--shadow-color);
 }
 
 .project-image {
-    position: relative;
     height: 200px;
-    background: linear-gradient(45deg, var(--accent-bg), var(--secondary-bg));
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: linear-gradient(45deg, var(--accent-primary), var(--accent-tertiary));
+    position: relative;
     overflow: hidden;
 }
 
 .project-placeholder {
-    font-size: 3rem;
-    color: var(--neon-blue);
-    opacity: 0.7;
-}
-
-.project-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: linear-gradient(45deg, var(--accent-primary), var(--accent-tertiary));
+    opacity: 0.3;
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.project-card:hover .project-overlay {
-    opacity: 1;
-}
-
-.project-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.project-link {
-    width: 50px;
-    height: 50px;
-    background: var(--neon-blue);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 3rem;
     color: white;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.project-link:hover {
-    background: var(--neon-purple);
-    transform: scale(1.1);
 }
 
 .project-content {
     padding: 1.5rem;
 }
 
-.project-content h3 {
-    color: var(--neon-blue);
+.project-title {
+    font-family: var(--font-heading);
     font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
 }
 
-.project-content p {
-    color: var(--secondary-text);
+.project-description {
+    color: var(--text-secondary);
     margin-bottom: 1rem;
     line-height: 1.6;
 }
@@ -669,300 +800,242 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .tech-tag {
-    background: var(--glass-bg);
-    border: 1px solid var(--border-color);
-    padding: 0.2rem 0.6rem;
+    background: var(--accent-primary);
+    color: white;
+    padding: 0.25rem 0.75rem;
     border-radius: 15px;
     font-size: 0.8rem;
-    color: var(--neon-green);
+    font-weight: 500;
 }
 
-/* 联系部分 */
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.project-link {
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-link:hover {
+    color: var(--accent-secondary);
+}
+
+/* Contact Section */
 .contact-section {
-    padding: 6rem 0;
-    background: var(--secondary-bg);
+    background: var(--bg-secondary);
 }
 
 .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
+    text-align: center;
 }
 
 .contact-info {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .contact-item {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 1.5rem;
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
+    padding: 1rem;
+    background: var(--bg-card);
     border-radius: 10px;
-    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-fast);
 }
 
 .contact-item:hover {
-    transform: translateX(10px);
-    box-shadow: var(--shadow);
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px var(--shadow-color);
 }
 
 .contact-item i {
     font-size: 1.5rem;
-    color: var(--neon-blue);
+    color: var(--accent-primary);
     width: 30px;
 }
 
-.contact-item h4 {
-    color: var(--neon-blue);
-    margin-bottom: 0.3rem;
+.contact-item span {
+    color: var(--text-primary);
+    font-weight: 500;
 }
 
-.contact-item p {
-    color: var(--secondary-text);
-}
-
-.contact-form {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 15px;
-    padding: 2rem;
-    backdrop-filter: blur(10px);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 1rem;
-    background: var(--glass-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    color: var(--primary-text);
-    font-family: inherit;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--neon-blue);
-    box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: var(--secondary-text);
-}
-
-/* 页脚 */
+/* Footer */
 .footer {
-    background: var(--primary-bg);
+    background: var(--bg-primary);
     border-top: 1px solid var(--border-color);
-    padding: 3rem 0 1rem;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-section h3,
-.footer-section h4 {
-    color: var(--neon-blue);
-    margin-bottom: 1rem;
-}
-
-.footer-section p {
-    color: var(--secondary-text);
-    line-height: 1.6;
-}
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section ul li {
-    margin-bottom: 0.5rem;
-}
-
-.footer-section ul li a {
-    color: var(--secondary-text);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section ul li a:hover {
-    color: var(--neon-blue);
-}
-
-.social-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-links a {
-    width: 40px;
-    height: 40px;
-    background: var(--glass-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--secondary-text);
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.social-links a:hover {
-    background: var(--neon-blue);
-    color: white;
-    transform: translateY(-3px);
-}
-
-.footer-bottom {
+    padding: 2rem 0;
     text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border-color);
-    color: var(--secondary-text);
 }
 
-/* 响应式设计 */
+.footer p {
+    color: var(--text-secondary);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-
     .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background-color: var(--primary-bg);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        padding: 2rem 0;
+        display: none;
     }
-
-    .nav-menu.active {
-        left: 0;
-    }
-
+    
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 2rem;
     }
-
+    
     .hero-title {
         font-size: 2.5rem;
     }
-
-    .glow-text {
-        font-size: 1.5rem;
-    }
-
+    
     .hero-buttons {
         justify-content: center;
+        flex-wrap: wrap;
     }
-
-    .contact-content {
+    
+    .resume-grid {
         grid-template-columns: 1fr;
     }
-
+    
     .projects-grid {
         grid-template-columns: 1fr;
     }
-
-    .resume-grid {
-        grid-template-columns: 1fr;
+    
+    .contact-info {
+        flex-direction: column;
     }
 }
 
 @media (max-width: 480px) {
-    .container {
-        padding: 0 1rem;
+    .nav-container {
+        padding: 1rem;
     }
-
+    
     .hero-title {
         font-size: 2rem;
     }
-
+    
     .section-title {
         font-size: 2rem;
     }
-
+    
     .btn {
-        padding: 0.8rem 1.5rem;
-        font-size: 1rem;
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
 }
 
-/* 滚动条样式 */
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Scroll Arrows for each section */
+.scroll-arrow {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background: var(--accent-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-fast);
+    box-shadow: 0 4px 15px var(--shadow-color);
+    animation: float-arrow 2s ease-in-out infinite;
+}
+
+.scroll-arrow:hover {
+    background: var(--accent-secondary);
+    transform: translateX(-50%) scale(1.1);
+    box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+.scroll-arrow i {
+    color: white;
+    font-size: 1.2rem;
+    animation: bounce-arrow 1.5s ease-in-out infinite;
+}
+
+.scroll-arrow.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+@keyframes float-arrow {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0px);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+@keyframes bounce-arrow {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-5px);
+    }
+    60% {
+        transform: translateY(-3px);
+    }
+}
+
+/* Cursor blink animation for typing effect */
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+/* Typing cursor styles */
+.typing-cursor {
+    color: var(--accent-primary);
+    animation: blink 1s infinite;
+    font-weight: bold;
+}
+
+/* Custom scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--primary-bg);
+    background: var(--bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--neon-blue);
+    background: var(--accent-primary);
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--neon-purple);
-}
-
-/* 平滑滚动 */
-html {
-    scroll-behavior: smooth;
-}
-
-/* 加载动画 */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.resume-card,
-.project-card,
-.contact-item {
-    animation: fadeInUp 0.6s ease-out;
-}
-
-/* 选择文本样式 */
-::selection {
-    background: var(--neon-blue);
-    color: white;
-}
-
-/* 焦点样式 */
-*:focus {
-    outline: 2px solid var(--neon-blue);
-    outline-offset: 2px;
+    background: var(--accent-secondary);
 } 

@@ -1,150 +1,167 @@
-# 开发者宇宙 - 个人网站
+# Futuristic Personal Portfolio Website
 
-一个具有未来感和宇宙主题的个人网站，采用深色主题设计，具有霓虹色彩和流畅的动画效果。
+A modern, responsive personal portfolio website with a cosmic theme and dark/light mode toggle. Built with HTML5, CSS3, and vanilla JavaScript.
 
-## 🌟 特性
+## 🌟 Features
 
-### 设计特色
-- **深色宇宙主题**: 采用深蓝色、紫色和霓虹色彩搭配
-- **星空背景**: 动态闪烁的星空背景效果
-- **未来感字体**: 使用 Orbitron 和 Rajdhani 字体
-- **霓虹发光效果**: 文字和按钮具有霓虹发光动画
-- **浮动元素**: 首页包含浮动的行星和卫星动画
+### Design & Theme
+- **Futuristic Cosmic Design**: Dark blues, purples, and neon accents
+- **Dark/Light Theme Toggle**: Smooth transitions between themes
+- **Responsive Design**: Works perfectly on all devices
+- **Modern Typography**: Orbitron for headers, Rajdhani for body text
 
-### 功能模块
-- **响应式导航**: 固定导航栏，支持移动端汉堡菜单
-- **首页英雄区域**: 引人注目的欢迎页面，包含动画元素
-- **简历展示**: 专业的技能、经验和教育背景展示
-- **项目展示**: 网格布局的项目卡片，支持悬停效果
-- **联系表单**: 功能完整的联系表单，包含验证
-- **页脚**: 包含快速链接和社交媒体图标
+### Interactive Elements
+- **Animated Background**: Twinkling stars and floating planets
+- **Smooth Scrolling**: Navigation with smooth section transitions
+- **Hover Effects**: Interactive cards and buttons with animations
+- **Typing Animation**: Hero title with typewriter effect
+- **Particle Effects**: Dynamic particles in the hero section
 
-### 交互功能
-- **平滑滚动**: 页面内导航平滑滚动
-- **滚动动画**: 元素进入视口时的淡入动画
-- **悬停效果**: 卡片和按钮的悬停动画
-- **表单验证**: 联系表单的实时验证
-- **通知系统**: 美观的通知提示
-- **键盘快捷键**: 支持数字键快速导航
+### Sections
+- **Homepage**: Hero section with animated elements
+- **Resume**: Professional layout for skills, experience, and education
+- **Projects**: Grid-based project showcase with tech tags
+- **Contact**: Contact information with hover effects
 
-## 🚀 快速开始
+## 🚀 Getting Started
 
-### 文件结构
+### Prerequisites
+- A modern web browser
+- Basic knowledge of HTML, CSS, and JavaScript (for customization)
+
+### Installation
+1. Download or clone the repository
+2. Open `index.html` in your web browser
+3. The website should load with the dark theme by default
+
+### File Structure
 ```
-Personal Web/
-├── index.html          # 主页面
-├── styles.css          # 样式文件
-├── script.js           # JavaScript功能
-└── README.md          # 说明文档
+Personal Web 2/
+├── index.html          # Main HTML file
+├── styles.css          # CSS styles and theme variables
+├── script.js           # JavaScript functionality
+└── README.md           # This file
 ```
 
-### 使用方法
-1. 下载所有文件到本地目录
-2. 用浏览器打开 `index.html` 文件
-3. 开始探索您的个人网站！
+## 🎨 Customization Guide
 
-### 自定义内容
-编辑 `index.html` 文件中的以下部分：
+### Personal Information
+Edit the following in `index.html`:
 
-#### 个人信息
+1. **Page Title**: Change `<title>Your Name - Personal Portfolio</title>`
+2. **Hero Section**: Update name, role, and description
+3. **Resume Section**: Modify skills, experience, and education
+4. **Projects Section**: Add your own projects with descriptions
+5. **Contact Section**: Update contact information
+
+### Colors & Theme
+The color scheme is defined in CSS variables in `styles.css`:
+
+```css
+:root {
+    --bg-primary: #0a0a0f;        /* Main background */
+    --bg-secondary: #1a1a2e;      /* Secondary background */
+    --accent-primary: #00d4ff;    /* Primary accent (cyan) */
+    --accent-secondary: #ff6b6b;  /* Secondary accent (coral) */
+    --accent-tertiary: #4ecdc4;   /* Tertiary accent (teal) */
+}
+```
+
+### Fonts
+The website uses Google Fonts:
+- **Orbitron**: For headings and titles
+- **Rajdhani**: For body text and descriptions
+
+### Adding Projects
+To add a new project, copy this structure in the projects section:
+
 ```html
-<!-- 在简历部分更新您的信息 -->
-<div class="info-item">
-    <i class="fas fa-user"></i>
-    <span>姓名：您的姓名</span>
-</div>
-```
-
-#### 技能标签
-```html
-<!-- 在技能部分添加或修改技能 -->
-<span class="skill-tag">您的技能</span>
-```
-
-#### 项目展示
-```html
-<!-- 在项目部分添加您的项目 -->
 <div class="project-card">
+    <div class="project-image">
+        <div class="project-placeholder"></div>
+    </div>
     <div class="project-content">
-        <h3>您的项目名称</h3>
-        <p>项目描述</p>
+        <h3 class="project-title">Your Project Name</h3>
+        <p class="project-description">
+            Your project description here.
+        </p>
         <div class="project-tech">
-            <span class="tech-tag">技术栈</span>
+            <span class="tech-tag">Technology 1</span>
+            <span class="tech-tag">Technology 2</span>
+        </div>
+        <div class="project-links">
+            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
         </div>
     </div>
 </div>
 ```
 
-#### 联系信息
-```html
-<!-- 在联系部分更新您的联系方式 -->
-<div class="contact-item">
-    <i class="fas fa-envelope"></i>
-    <div>
-        <h4>邮箱</h4>
-        <p>your.email@example.com</p>
-    </div>
-</div>
-```
+## 🌙 Theme Toggle
 
-## 🎨 颜色主题
+The theme toggle is located in the top-right corner of the navigation bar. It features:
+- **Sun/Moon Icons**: Visual indication of current theme
+- **Smooth Transitions**: All elements transition smoothly
+- **Local Storage**: Theme preference is saved and remembered
 
-网站使用以下颜色变量：
+## 📱 Responsive Design
 
-```css
---primary-bg: #0a0a0f;        /* 主背景色 */
---secondary-bg: #1a1a2e;       /* 次要背景色 */
---neon-blue: #00d4ff;          /* 霓虹蓝 */
---neon-purple: #8b5cf6;        /* 霓虹紫 */
---neon-pink: #ec4899;          /* 霓虹粉 */
---neon-green: #10b981;         /* 霓虹绿 */
-```
+The website is fully responsive and includes:
+- **Mobile-First Approach**: Optimized for mobile devices
+- **Flexible Grids**: Projects and resume sections adapt to screen size
+- **Touch-Friendly**: Optimized for touch interactions
+- **Readable Typography**: Font sizes adjust for different screens
 
-## 📱 响应式设计
+## ⚡ Performance Features
 
-网站完全响应式，支持以下设备：
-- 桌面电脑 (1200px+)
-- 平板电脑 (768px - 1199px)
-- 手机设备 (480px - 767px)
-- 小屏手机 (< 480px)
+- **Optimized Animations**: Smooth 60fps animations
+- **Throttled Scroll Events**: Performance-optimized scrolling
+- **Intersection Observer**: Efficient element animations
+- **Minimal Dependencies**: Only uses Font Awesome for icons
 
-## ⚡ 性能优化
+## 🎯 Browser Support
 
-- **CSS动画**: 使用GPU加速的CSS动画
-- **懒加载**: 图片和内容的懒加载
-- **代码分割**: 模块化的JavaScript代码
-- **字体优化**: 使用Google Fonts CDN
+- Chrome (recommended)
+- Firefox
+- Safari
+- Edge
+- Mobile browsers
 
-## 🔧 技术栈
+## 🔧 Advanced Customization
 
-- **HTML5**: 语义化标记
-- **CSS3**: 现代CSS特性，包括Grid和Flexbox
-- **JavaScript ES6+**: 现代JavaScript功能
-- **Font Awesome**: 图标库
-- **Google Fonts**: 网页字体
+### Adding New Sections
+1. Add the HTML structure in `index.html`
+2. Add corresponding CSS styles in `styles.css`
+3. Add any JavaScript functionality in `script.js`
 
-## 🎯 浏览器支持
+### Modifying Animations
+Animations are defined in CSS using `@keyframes`. Key animations include:
+- `twinkle`: Star background animation
+- `float`: Planet and element floating
+- `pulse`: Logo glow effect
+- `ripple-animation`: Button click effects
 
-- Chrome 60+
-- Firefox 55+
-- Safari 12+
-- Edge 79+
+### Custom JavaScript Features
+The JavaScript includes:
+- Theme toggle with localStorage
+- Smooth scrolling navigation
+- Intersection Observer for animations
+- Parallax effects
+- Typing animation
+- Particle system
 
-## 📝 许可证
+## 📄 License
 
-本项目采用 MIT 许可证。
+This project is open source and available under the [MIT License](LICENSE).
 
-## 🤝 贡献
+## 🤝 Contributing
 
-欢迎提交问题和改进建议！
+Feel free to fork this project and customize it for your own use. If you make improvements, consider sharing them!
 
-## 📞 支持
+## 📞 Support
 
-如果您在使用过程中遇到任何问题，请通过以下方式联系：
-
-- 邮箱: your.email@example.com
-- GitHub: github.com/yourusername
+If you need help customizing the website or have questions, feel free to reach out!
 
 ---
 
-**享受您的宇宙之旅！** 🚀✨ 
+**Enjoy your new futuristic portfolio website! 🚀** 

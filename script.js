@@ -1,45 +1,41 @@
-// 等待DOM加载完成
+// Theme Toggle Functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // 导航菜单功能
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    
+    // Check for saved theme preference or default to dark theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        body.classList.add('light-theme');
+    }
+
+    // Theme toggle event listener
+    themeToggle.addEventListener('click', function() {
+        body.classList.toggle('light-theme');
+        
+        // Save theme preference
+        const currentTheme = body.classList.contains('light-theme') ? 'light' : 'dark';
+        localStorage.setItem('theme', currentTheme);
+        
+        // Add click animation
+        themeToggle.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            themeToggle.style.transform = 'scale(1)';
+        }, 150);
+    });
+    
+    // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('.nav-link');
-
-    // 汉堡菜单切换
-    hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-
-    // 点击导航链接时关闭菜单
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
-    });
-
-    // 滚动时导航栏效果
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 100) {
-            navbar.style.background = 'rgba(10, 10, 15, 0.98)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
-        } else {
-            navbar.style.background = 'rgba(10, 10, 15, 0.95)';
-            navbar.style.boxShadow = 'none';
-        }
-    });
-
-    // 平滑滚动到锚点
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
+            
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 70; // 考虑导航栏高度
+                const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
+                
                 window.scrollTo({
                     top: offsetTop,
                     behavior: 'smooth'
@@ -47,13 +43,38 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    // 滚动动画
+    
+    // Active navigation link highlighting
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-link');
+    
+    window.addEventListener('scroll', function() {
+        let current = '';
+        const scrollPosition = window.scrollY + 100;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('href') === `#${current}`) {
+                item.classList.add('active');
+            }
+        });
+    });
+    
+    // Intersection Observer for animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-
+    
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -62,24 +83,58 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }, observerOptions);
-
-    // 观察所有需要动画的元素
-    const animatedElements = document.querySelectorAll('.resume-card, .project-card, .contact-item');
-    animatedElements.forEach(el => {
+    
+    // Observe elements for animation
+    const animateElements = document.querySelectorAll('.resume-card, .project-card, .contact-item');
+    animateElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
-
-    // 技能标签动画
-    const skillTags = document.querySelectorAll('.skill-tag');
-    skillTags.forEach((tag, index) => {
-        tag.style.animationDelay = `${index * 0.1}s`;
-        tag.style.animation = 'fadeInUp 0.6s ease-out forwards';
+    
+    // Parallax effect for planets
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const planets = document.querySelectorAll('.planet');
+        
+        planets.forEach((planet, index) => {
+            const speed = 0.5 + (index * 0.1);
+            planet.style.transform = `translateY(${scrolled * speed}px)`;
+        });
     });
-
-    // 项目卡片悬停效果增强
+    
+    // Typing animation for hero title
+    const titleName = document.querySelector('.title-name');
+    if (titleName) {
+        const text = titleName.textContent;
+        titleName.textContent = '';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < text.length) {
+                // Build the text content with cursor
+                const currentText = text.substring(0, i + 1);
+                titleName.innerHTML = currentText + '<span class="typing-cursor">|</span>';
+                i++;
+                setTimeout(typeWriter, 100);
+            } else {
+                // Remove cursor after typing is complete
+                titleName.textContent = text;
+            }
+        };
+        
+        // Start typing animation after a delay
+        setTimeout(typeWriter, 1000);
+    }
+    
+    // Floating elements animation
+    const floatingElements = document.querySelectorAll('.element');
+    floatingElements.forEach((element, index) => {
+        element.style.animationDelay = `${index * 0.5}s`;
+    });
+    
+    // Add hover effects to project cards
     const projectCards = document.querySelectorAll('.project-card');
     projectCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
@@ -90,273 +145,236 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'translateY(0) scale(1)';
         });
     });
-
-    // 联系表单处理
-    const contactForm = document.querySelector('.contact-form form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+    
+    // Add ripple effect to buttons
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
             
-            // 获取表单数据
-            const formData = new FormData(this);
-            const name = this.querySelector('input[type="text"]').value;
-            const email = this.querySelector('input[type="email"]').value;
-            const message = this.querySelector('textarea').value;
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.classList.add('ripple');
             
-            // 简单的表单验证
-            if (!name || !email || !message) {
-                showNotification('请填写所有必填字段', 'error');
-                return;
-            }
+            this.appendChild(ripple);
             
-            if (!isValidEmail(email)) {
-                showNotification('请输入有效的邮箱地址', 'error');
-                return;
-            }
-            
-            // 模拟发送消息
-            showNotification('消息发送中...', 'info');
-            
-            // 模拟API调用
             setTimeout(() => {
-                showNotification('消息发送成功！', 'success');
-                this.reset();
-            }, 2000);
+                ripple.remove();
+            }, 600);
         });
-    }
-
-    // 邮箱验证函数
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-
-    // 通知系统
-    function showNotification(message, type = 'info') {
-        // 移除现有通知
-        const existingNotification = document.querySelector('.notification');
-        if (existingNotification) {
-            existingNotification.remove();
-        }
-
-        // 创建通知元素
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
-        notification.innerHTML = `
-            <div class="notification-content">
-                <i class="fas ${getNotificationIcon(type)}"></i>
-                <span>${message}</span>
-            </div>
-        `;
-
-        // 添加样式
-        notification.style.cssText = `
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            background: ${getNotificationColor(type)};
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            z-index: 10000;
-            transform: translateX(400px);
-            transition: transform 0.3s ease;
-            max-width: 300px;
-        `;
-
-        // 添加到页面
-        document.body.appendChild(notification);
-
-        // 显示动画
-        setTimeout(() => {
-            notification.style.transform = 'translateX(0)';
-        }, 100);
-
-        // 自动隐藏
-        setTimeout(() => {
-            notification.style.transform = 'translateX(400px)';
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.remove();
-                }
-            }, 300);
-        }, 4000);
-    }
-
-    function getNotificationIcon(type) {
-        const icons = {
-            success: 'fa-check-circle',
-            error: 'fa-exclamation-circle',
-            info: 'fa-info-circle',
-            warning: 'fa-exclamation-triangle'
-        };
-        return icons[type] || icons.info;
-    }
-
-    function getNotificationColor(type) {
-        const colors = {
-            success: 'linear-gradient(45deg, #10b981, #059669)',
-            error: 'linear-gradient(45deg, #ef4444, #dc2626)',
-            info: 'linear-gradient(45deg, #3b82f6, #2563eb)',
-            warning: 'linear-gradient(45deg, #f59e0b, #d97706)'
-        };
-        return colors[type] || colors.info;
-    }
-
-    // 粒子效果增强
-    createParticles();
-
-    // 创建粒子效果
-    function createParticles() {
-        const particlesContainer = document.createElement('div');
-        particlesContainer.className = 'particles-container';
-        particlesContainer.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        `;
-
-        // 创建粒子
-        for (let i = 0; i < 50; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.cssText = `
-                position: absolute;
-                width: 2px;
-                height: 2px;
-                background: ${getRandomColor()};
-                border-radius: 50%;
-                animation: particleFloat ${Math.random() * 10 + 10}s linear infinite;
-                left: ${Math.random() * 100}%;
-                top: ${Math.random() * 100}%;
-                opacity: ${Math.random() * 0.5 + 0.3};
-            `;
-            particlesContainer.appendChild(particle);
-        }
-
-        document.body.appendChild(particlesContainer);
-    }
-
-    function getRandomColor() {
-        const colors = ['#00d4ff', '#8b5cf6', '#ec4899', '#10b981'];
-        return colors[Math.floor(Math.random() * colors.length)];
-    }
-
-    // 添加粒子浮动动画
+    });
+    
+    // Add CSS for ripple effect
     const style = document.createElement('style');
     style.textContent = `
-        @keyframes particleFloat {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
+        .btn {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            pointer-events: none;
+        }
+        
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
                 opacity: 0;
             }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
+        }
+        
+        .nav-link.active {
+            color: var(--accent-primary) !important;
+        }
+        
+        .nav-link.active::after {
+            width: 100% !important;
         }
     `;
     document.head.appendChild(style);
-
-    // 打字机效果
-    const heroTitle = document.querySelector('.neon-text');
-    if (heroTitle) {
-        const text = heroTitle.textContent;
-        heroTitle.textContent = '';
-        heroTitle.style.borderRight = '2px solid var(--neon-blue)';
+    
+    // Add loading animation
+    window.addEventListener('load', function() {
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s ease';
         
-        let i = 0;
-        const typeWriter = () => {
-            if (i < text.length) {
-                heroTitle.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            } else {
-                heroTitle.style.borderRight = 'none';
-            }
-        };
-        
-        // 延迟开始打字效果
-        setTimeout(typeWriter, 1000);
-    }
-
-    // 滚动进度条
+        setTimeout(() => {
+            document.body.style.opacity = '1';
+        }, 100);
+    });
+    
+    // Add scroll progress indicator
     const progressBar = document.createElement('div');
-    progressBar.className = 'scroll-progress';
     progressBar.style.cssText = `
         position: fixed;
         top: 0;
         left: 0;
         width: 0%;
         height: 3px;
-        background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+        background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
         z-index: 1001;
         transition: width 0.1s ease;
     `;
     document.body.appendChild(progressBar);
-
-    // 更新滚动进度
+    
     window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset;
         const docHeight = document.body.offsetHeight - window.innerHeight;
         const scrollPercent = (scrollTop / docHeight) * 100;
         progressBar.style.width = scrollPercent + '%';
     });
-
-    // 键盘快捷键
-    document.addEventListener('keydown', function(e) {
-        // ESC键关闭移动端菜单
-        if (e.key === 'Escape') {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        }
+    
+    // Add particle effect to hero section
+    createParticles();
+    
+    // Scroll arrows functionality for each section
+    const homeArrow = document.getElementById('homeArrow');
+    const resumeArrow = document.getElementById('resumeArrow');
+    const projectsArrow = document.getElementById('projectsArrow');
+    
+    // Function to check if element is in viewport
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+    
+    // Show/hide arrows based on section visibility
+    window.addEventListener('scroll', function() {
+        const homeSection = document.getElementById('home');
+        const resumeSection = document.getElementById('resume');
+        const projectsSection = document.getElementById('projects');
         
-        // 数字键快速导航
-        /*if (e.key >= '1' && e.key <= '4') {
-            const sections = ['#home', '#resume', '#projects', '#contact'];
-            const targetSection = sections[parseInt(e.key) - 1];
-            const element = document.querySelector(targetSection);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
+        // Home arrow - show when home section is visible
+        if (homeSection) {
+            const homeRect = homeSection.getBoundingClientRect();
+            if (homeRect.top <= 0 && homeRect.bottom > window.innerHeight) {
+                homeArrow.classList.add('visible');
+            } else {
+                homeArrow.classList.remove('visible');
             }
         }
-    });*/
-
-    // 页面加载完成后的欢迎动画
-    setTimeout(() => {
-        document.body.style.opacity = '1';
-        document.body.style.transition = 'opacity 0.5s ease';
-    }, 100);
-
-    // 初始化页面透明度
-    document.body.style.opacity = '0';
+        
+        // Resume arrow - show when resume section is visible
+        if (resumeSection) {
+            const resumeRect = resumeSection.getBoundingClientRect();
+            if (resumeRect.top <= 0 && resumeRect.bottom > window.innerHeight) {
+                resumeArrow.classList.add('visible');
+            } else {
+                resumeArrow.classList.remove('visible');
+            }
+        }
+        
+        // Projects arrow - show when projects section is visible
+        if (projectsSection) {
+            const projectsRect = projectsSection.getBoundingClientRect();
+            if (projectsRect.top <= 0 && projectsRect.bottom > window.innerHeight) {
+                projectsArrow.classList.add('visible');
+            } else {
+                projectsArrow.classList.remove('visible');
+            }
+        }
+    });
+    
+    // Scroll to next section when arrows are clicked
+    homeArrow.addEventListener('click', function() {
+        const resumeSection = document.getElementById('resume');
+        if (resumeSection) {
+            resumeSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+    
+    resumeArrow.addEventListener('click', function() {
+        const projectsSection = document.getElementById('projects');
+        if (projectsSection) {
+            projectsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+    
+    projectsArrow.addEventListener('click', function() {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
 });
 
-// 工具函数
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
+// Particle effect function
+function createParticles() {
+    const heroSection = document.querySelector('.hero-section');
+    const particleCount = 50;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.style.cssText = `
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            opacity: 0.6;
+            pointer-events: none;
+            animation: particle-float ${3 + Math.random() * 4}s ease-in-out infinite;
+            left: ${Math.random() * 100}%;
+            top: ${Math.random() * 100}%;
+            animation-delay: ${Math.random() * 2}s;
+        `;
+        heroSection.appendChild(particle);
+    }
+    
+    // Add particle animation CSS
+    const particleStyle = document.createElement('style');
+    particleStyle.textContent = `
+        @keyframes particle-float {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translateY(-20px) translateX(10px);
+                opacity: 1;
+            }
+        }
+    `;
+    document.head.appendChild(particleStyle);
 }
 
-// 节流函数
+// Add keyboard navigation support
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        // Close any open modals or menus
+        console.log('Escape pressed');
+    }
+    
+    if (e.ctrlKey && e.key === 'k') {
+        e.preventDefault();
+        // Could add search functionality here
+        console.log('Search shortcut pressed');
+    }
+});
+
+// Add touch support for mobile devices
+if ('ontouchstart' in window) {
+    document.addEventListener('touchstart', function() {
+        // Add touch-specific interactions
+    }, { passive: true });
+}
+
+// Performance optimization: Throttle scroll events
 function throttle(func, limit) {
     let inThrottle;
     return function() {
@@ -367,71 +385,10 @@ function throttle(func, limit) {
             inThrottle = true;
             setTimeout(() => inThrottle = false, limit);
         }
-    };
-}
-
-// 导出函数供外部使用
-window.websiteUtils = {
-    showNotification: function(message, type) {
-        // 重新定义通知函数以便外部调用
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
-        notification.innerHTML = `
-            <div class="notification-content">
-                <i class="fas ${getNotificationIcon(type)}"></i>
-                <span>${message}</span>
-            </div>
-        `;
-        
-        notification.style.cssText = `
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            background: ${getNotificationColor(type)};
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            z-index: 10000;
-            transform: translateX(400px);
-            transition: transform 0.3s ease;
-            max-width: 300px;
-        `;
-        
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-            notification.style.transform = 'translateX(0)';
-        }, 100);
-        
-        setTimeout(() => {
-            notification.style.transform = 'translateX(400px)';
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.remove();
-                }
-            }, 300);
-        }, 4000);
     }
-};
-
-// 辅助函数
-function getNotificationIcon(type) {
-    const icons = {
-        success: 'fa-check-circle',
-        error: 'fa-exclamation-circle',
-        info: 'fa-info-circle',
-        warning: 'fa-exclamation-triangle'
-    };
-    return icons[type] || icons.info;
 }
 
-function getNotificationColor(type) {
-    const colors = {
-        success: 'linear-gradient(45deg, #10b981, #059669)',
-        error: 'linear-gradient(45deg, #ef4444, #dc2626)',
-        info: 'linear-gradient(45deg, #3b82f6, #2563eb)',
-        warning: 'linear-gradient(45deg, #f59e0b, #d97706)'
-    };
-    return colors[type] || colors.info;
-} 
+// Apply throttling to scroll events
+window.addEventListener('scroll', throttle(function() {
+    // Scroll-based animations
+}, 16)); // ~60fps 
